@@ -1,20 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 
-$font-stack: 'Roboto', sans-serif;
+$font-stack: "Roboto", sans-serif;
 $primary-color: #6200ee;
-$secondary-color: #03dac6;
 $background-color: #f5f5f5;
-$button-hover-color: #3700b3;
+$button-color-1: #ff3b30;
+$button-color-2: #4cd964;
+$button-color-3: #007aff;
 
-body {
+.numbers-title {
   font-family: $font-stack;
-  background-color: $background-color;
-}
-
-h1 {
   color: $primary-color;
   text-align: center;
-  margin-bottom: 1rem;
+  font-size: 40px;
 }
 
 .button-container {
@@ -22,8 +19,7 @@ h1 {
   justify-content: center;
   margin-bottom: 1rem;
 
-  button {
-    background-color: $secondary-color;
+  .filter-button {
     border: none;
     border-radius: 5px;
     color: white;
@@ -33,22 +29,65 @@ h1 {
     margin: 0 0.5rem;
     padding: 0.5rem 1rem;
     text-transform: uppercase;
-    transition: background-color 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &:nth-child(1) {
+      background-color: $button-color-1;
+
+      &:hover {
+        background-color: lighten($button-color-1, 10%);
+      }
+    }
+
+    &:nth-child(2) {
+      background-color: $button-color-2;
+
+      &:hover {
+        background-color: lighten($button-color-2, 10%);
+      }
+    }
+
+    &:nth-child(3) {
+      background-color: $button-color-3;
+
+      &:hover {
+        background-color: lighten($button-color-3, 10%);
+      }
+    }
 
     &:hover {
-      background-color: $button-hover-color;
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+      transform: scale(1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba($primary-color, 0.5);
     }
   }
 }
 
-ul {
+.number-list {
+  font-family: $font-stack;
   list-style-type: none;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 1rem;
-  justify-items: center;
+  text-align: center;
 }
+
+.number-item {
+  font-weight: 500;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  border-radius: 5px;
+  background-color: $background-color;
+}
+
 
 @media screen and (max-width: 768px) {
   h1 {
